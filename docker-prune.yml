@@ -1,0 +1,9 @@
+---
+- name: Clean up Docker
+  hosts: all
+  become: yes  # Ensures that the task runs with sudo
+  tasks:
+    - name: Run Docker system prune
+      command: sudo docker system prune -f
+      become: yes
+      tags: prune
