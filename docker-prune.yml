@@ -4,6 +4,11 @@
   become: yes  # Ensures that the task runs with sudo
   tasks:
     - name: Run Docker system prune
-      command: sudo docker system prune
-      become: yes
-      tags: prune
+      community.docker.docker_prune:
+    		containers: yes
+    		images: yes
+    		images_filters:
+    		  dangling: false
+    		networks: yes
+    		volumes: yes
+    		builder_cache: yes
