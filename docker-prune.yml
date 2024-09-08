@@ -5,6 +5,11 @@
   collections:
     - community.docker
   tasks:
+    - name: Ensure the 'requests' library is installed
+      ansible.builtin.pip:
+        name: requests
+        state: present
+    
     - name: Run Docker system prune
       community.docker.docker_prune:
         containers: true
