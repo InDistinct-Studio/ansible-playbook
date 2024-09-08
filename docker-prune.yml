@@ -2,6 +2,8 @@
 - name: Clean up Docker
   hosts: all
   become: yes  # Ensures that the task runs with sudo
+  collections:
+	  - community.docker
   tasks:
     - name: Run Docker system prune
       community.docker.docker_prune:
