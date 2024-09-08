@@ -4,6 +4,6 @@
   become: yes  # Ensures that the task runs with sudo
   tasks:
     - name: Run Docker system prune
-      command: sudo docker system prune -f
+      command: sudo docker system prune
       become: yes
       tags: prune
